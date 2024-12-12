@@ -1,0 +1,6 @@
+{
+    "URL_to_scraping": "https://www.yogonet.com/international/",
+    "project_id": "newsia-434114",
+    "dataset_id": "news",
+    "table": "yogonet_com_international"
+}

@@ -41,7 +41,7 @@ class NewsScraper:
             return df
 
         try:
-            self.logger.info(f"Abriendo la página: {url}")
+            self.logger.info(f"Opening page: {url}")
             self.driver.get(url)
             
             # Wait for news to appear
@@ -50,7 +50,7 @@ class NewsScraper:
 
             # Parallel news extract 
             news = self.driver.find_elements(By.XPATH, xpath_news)
-            self.logger.info(f"{len(news)} news were found:")         
+            self.logger.info(f"{len(news)} news were found")         
             
             with ThreadPoolExecutor() as executor:
                 news_data = list(executor.map(extract_news, news))

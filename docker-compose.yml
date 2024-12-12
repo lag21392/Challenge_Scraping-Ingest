@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   selenium:
     image: selenium/standalone-firefox:latest
@@ -11,7 +9,11 @@ services:
     environment:
       - SE_NODE_MAX_SESSIONS=1
       - SE_NODE_MAX_INSTANCES=1
-
+      - SE_NODE_TIMEOUT=180
+      - SE_BROWSER_TIMEOUT=120
+      - SE_GRID_TIMEOUT=180
+    shm_size: 2g 
+    
   app_news_extractor_yogonet_com:
     build:
       context: ./app_news_extractor_yogonet_com
@@ -24,8 +26,10 @@ services:
     environment:
       - SELENIUM_URL=http://selenium:4444/wd/hub
     volumes:
-      - .:/app_news_extractor_yogonet_com
-
+      - ./app_news_extractor_yogonet_com:/app
+      - ./logs:/app/Logs
+      - ./credentials:/credentials
+      - ./untils/:/app/untils/
 networks:
   app_network:
     driver: bridge

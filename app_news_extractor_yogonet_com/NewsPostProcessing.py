@@ -4,7 +4,7 @@ class NewsPostProcessing:
     @staticmethod
     def add_metrics(df):
         # Datetime
-        df['Datetime'] = datetime.now()        
+        df['Datetime'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')        
 
         # Word count in Title
         df['Word_count_in_title'] = df['Title'].apply(lambda text: len(text.split()))

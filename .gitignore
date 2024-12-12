@@ -1,2 +1,4 @@
 *Logs/
 *data.csv
+*credentials/*
+*__pycache__*
