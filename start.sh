@@ -1,10 +1,13 @@
 #!/bin/bash
 
+# Build services
+docker-compose build 
+
 # Starts services
-docker-compose up -d
+docker-compose up selenium -d
 
 # Run the extraction process and wait for it to finish
-docker-compose exec app_news_extractor_yogonet_com python main.py
+docker-compose up app_news_extractor_yogonet_com 
 
 # Stops containers
 docker-compose down

@@ -1,9 +1,7 @@
 services:
   selenium:
-    image: selenium/standalone-firefox:latest
-    container_name: selenium_firefox
-    ports:
-      - "4444:4444"
+    image: selenium/standalone-firefox
+    container_name: selenium-service   
     networks:
       - app_network
     environment:
@@ -12,7 +10,7 @@ services:
       - SE_NODE_TIMEOUT=180
       - SE_BROWSER_TIMEOUT=120
       - SE_GRID_TIMEOUT=180
-    shm_size: 2g 
+    shm_size: 0.5g 
     
   app_news_extractor_yogonet_com:
     build:
@@ -24,12 +22,13 @@ services:
     depends_on:
       - selenium
     environment:
-      - SELENIUM_URL=http://selenium:4444/wd/hub
-    volumes:
-      - ./app_news_extractor_yogonet_com:/app
-      - ./logs:/app/Logs
-      - ./credentials:/credentials
-      - ./untils/:/app/untils/
+      - SELENIUM_URL=http://selenium-service:4444/wd/hub
+    #volumes:
+      #- ./app_news_extractor_yogonet_com:/app_news_extractor_yogonet_com
+      #- ./logs:/app/Logs
+      #- ./credentials:/credentials
+      #- ./untils/:/app/untils/
+      
 networks:
   app_network:
     driver: bridge

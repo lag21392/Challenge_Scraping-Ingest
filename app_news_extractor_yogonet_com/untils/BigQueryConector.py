@@ -43,7 +43,11 @@ class BigQueryConector:
             self.client.create_table(table)
             self.logger.info(f"Table {table_id} is created")
 
-        # Inserta datos en la tabla        
-        to_gbq(df, destination_table=table_id, project_id=project_id, if_exists='append')
-
-        return True
+        # Inserts data into the table
+        try:       
+            to_gbq(df, destination_table=table_id, project_id=project_id, if_exists='append')
+            return True
+        except Exception as e:
+            self.logger.info(f"Error when inserting data in the table: {str(e)}")
+            return False
+        

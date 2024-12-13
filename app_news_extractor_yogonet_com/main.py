@@ -44,10 +44,9 @@ def main():
     db_conector.df_to_sql(project_id, dataset_id, table, df_news)      
 
     # Close driver
-    logger.info('Close driver')
+    logger.info('Close driver')    
+    web_driver_manager.close_driver()    
     logger.info('--------------------- FINISH ---------------------')
-    web_driver_manager.close_driver()
     
-
 if __name__ == "__main__":
     main()
