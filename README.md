@@ -56,6 +56,6 @@ Use the `deploy.sh` script to deploy the application to Google Cloud Run. This s
 
 For further details or issues, consult the relevant scripts (`start.sh` or `deploy.sh`) or open an issue in the project repository.
 
-
-Challenge: https://mia-platform.notion.site/Python-Code-Challenge-Scraping-and-Ingest-c5ea18abca8c4bb59eb1265b7f46a83c
-ChatGPT Link: https://chatgpt.com/share/67598c29-8438-8001-95e4-34d86192bc8a
+## Links
+- Challenge: https://mia-platform.notion.site/Python-Code-Challenge-Scraping-and-Ingest-c5ea18abca8c4bb59eb1265b7f46a83c
+- ChatGPT Link: https://chatgpt.com/share/67598c29-8438-8001-95e4-34d86192bc8a
